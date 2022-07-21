@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/layout}">
+
+<th:block layout:fragment="content">
+    <!-- Begin Page Content -->
+    <div class="wrapper light-wrapper">
+      <div class="container inner pt-60">
+        <div class="blog classic-view">
+          <div class="post text-center">
+            <div class="row post-content text-left bg-white pt-50" style="border-radius: 20px;">
+              <input type="hidden" th:value="${vno}" id="vno">
+              
+              <!-- title -->
+              <div class="col-md-10 offset-md-1 d-flex justify-content-between" id="title">
+                <h1 class="post-title"></h1>
+                <div class="dropdown" hidden="true">
+                	<a class="nav-link dropdown-toggle color-dark" id="extra" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#">&#8942;</a>
+                	  <ul class="dropdown-menu toleft shadow" aria-labelledby="extra">
+		                <li class="nav-item" ><a class="dropdown-item" href="" id="mod">수정</a></li>
+		                <li class="nav-item" ><a class="dropdown-item" href="" id="del">삭제</a></li>
+		              </ul>
+                </div>
+              </div>
+              
+              <!-- content -->
+              <div class="col-md-10 offset-md-1" id="postContainer">
+                <div class="meta"></div>
+              </div>
+              
+              <!-- video -->
+              <div class="col-md-10 offset-md-1 mb-20 video-container">
+              	<div class="canvas text-center" id="canvas">
+              	  <p class="canvas-msg">영상을 준비중입니다. 조금만 기다려 주세요...
+              	    <img alt="" src="/style/images/loading_default.gif">
+              	  </p>
+              	</div>
+                <video id="myVideo" class="video-js vjs-skin-default vjs-fluid vjs-big-play-centered vjs-time-control mb-20"></video>
+              </div>
+              <div class="col-md-10 offset-md-1 mb-20">
+                <!-- tabs-wrapper -->
+                <div class="tabs-wrapper bg-grey shadow">
+                
+	              <!-- nav-tabs -->
+	              <ul class="nav nav-tabs">
+	                <li class="nav-item"> <a class="nav-link active" data-toggle="tab" href="#tab1-1">Overview</a> </li>
+	                <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#tab1-2">Description</a> </li>
+	                <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#tab1-3">Catalog</a> </li>
+	              </ul>
+	              
+	              <!-- nav-tabs-contents -->
+	              <div class="tab-content min-height-160">
+	                <div class="tab-pane fade show active" id="tab1-1">
+	                  <div class="row">
+			            <div class="col-md-6 component-table">
+			              <table class="table shadow bg-white">
+			                <thead class="sticky">
+			                  <tr>
+			                    <th scope="col">#</th>
+			                    <th scope="col">Component</th>
+			                    <th scope="col">Status</th>
+			                    <th scope="col">File type</th>
+			                  </tr>
+			                </thead>
+			                <tbody id="jobView">
+			                </tbody>
+			              </table>
+			            </div>
+			            <!-- /column -->
+			            <div class="col-md-6">
+			              <table class="table table-bordered shadow">
+			                <thead>
+			                  <tr>
+			                    <th scope="col" colspan="2">File Info.</th>
+			                  </tr>
+			                </thead>
+			                <tbody id="fileInfo">
+			                </tbody>
+			              </table>
+			            </div>
+			          </div>
+			          <!-- /.row -->
+	                </div>
+	                
+	                <div class="tab-pane fade" id="tab1-2">
+	                  <p id="content"></p>
+	                </div>
+	                
+	                <div class="tab-pane fade wrap-vertical" id="tab1-3"></div>
+	              </div>
+	              <!-- /.tab-content -->
+	            </div>
+	            <!-- /.tabs-wrapper -->
+              </div>
+              
+              <div class="space70"></div>
+              
+            </div>
+	        <!-- /.row -->
+          </div>
+          <!-- /.post -->
+        </div>
+        <!-- /.blog -->
+      </div>
+      <!-- /.container -->
+    </div>
+    <!-- /.wrapper -->
+    
+</th:block>
+
+<th:block layout:fragment="script">
+	<script type="text/javascript">
+		let sort = "[[${sort}]]";
+		let msg = "[[${msg}]]";
+		if (sort != "noMsg" && msg != "noMsg") {
+    		sort = `[[#{${sort}}]]`;
+    		msg = `[[#{${msg}}]]`;
+		}
+	</script>
+	<script type="text/javascript" src="/js/video/comp/video.js"></script>
+	<script type="text/javascript" src="/js/video/comp/component.js"></script>
+	<script type="text/javascript" src="/js/video/comp/base.js"></script>
+</th:block>
+
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+
+<th:block th:fragment="topbarFragment">
+
+    <!-- Topbar -->
+    <nav class="navbar center navbar-expand-lg">
+      <div class="container flex-lg-column">
+        <div class="navbar-header">
+          <div class="navbar-hamburger ml-auto d-lg-none d-xl-none"><button class="hamburger animate" data-toggle="collapse" data-target=".navbar-collapse"><span></span></button></div>
+        </div>
+        <!-- /.navbar-header -->
+        <div class="navbar-collapse collapse w-100 bordered">
+          <ul class="navbar-nav nav-fill w-100" id="navList">
+            <li class="nav-item"><a href="/" class="nav-link">Home</a></li>
+            <li class="nav-item"><a href="/boardone/list?curPage=1" class="nav-link dropdown-toggle">글 게시판</a></li>
+            <li class="nav-item"><a href="/video/list" class="nav-link">영상 게시판</a></li>
+            <!-- <li class="nav-item"><a href="/" class="nav-link dropdown-toggle auth" hidden="true">로그인/회원가입</a></li> -->
+            <!-- 
+            <li class="nav-item"><a href="/" class="nav-link dropdown-toggle auth" hidden="false">register</a></li>
+            <li class="nav-item"><a href="/" class="nav-link dropdown-toggle mypage" hidden="true">myPage</a></li>
+            <li class="nav-item"><a href="/" class="nav-link dropdown-toggle mypage" hidden="true">logout</a></li> -->
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+</th:block>
+
+<th:block layout:fragment="script">
+	<script type="text/javascript" src="/js/nav.js"></script>
+</th:block>
+</html>

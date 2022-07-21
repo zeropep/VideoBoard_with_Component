@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+    <!-- 공통 헤드-->
+<!--     <th:block th:replace="/layout/fragments/header :: headFragment"></th:block> -->
+    <th:block th:replace="~{layout/fragments/header :: headFragment}"></th:block>
+	<th:block layout:fragment="style"></th:block>
+	
+    <body id="page-top">
+    
+    	  <!-- spinner for page-loading -->
+    	  <div class="page-loading">
+		    <div class="status">
+		      <div class="spinner"></div>
+		    </div>
+		  </div>
+		  <!-- spinner for axios -->
+    	  <div class="myloading" id="loadingImg">
+		    <div class="loadStatus">
+		      <div class="loadingImg" ></div>
+		    </div>
+		  </div>
+		  
+        <div id="wrapper">
+            <!-- 사이드바-->
+            <!-- <th:block th:replace="/layout/fragments/sidebar :: sidebarFragment"></th:block> -->
+            <div id="content-wrapper">
+            	<div class="row w-100 text-center">
+				  <div class="notification-container" id="alert">
+				    <p class="m-0"></p>
+				  </div>
+				</div>
+                <!-- 상단바-->
+                <th:block th:replace="~{layout/fragments/navbar :: topbarFragment}"></th:block>
+
+                <!-- 본문-->
+                <th:block layout:fragment="content"></th:block>
+
+                <!-- 공통 하단-->
+                <th:block th:replace="~{layout/fragments/footer :: footerFragment}"></th:block>
+            </div>
+        </div>
+        
+        <!-- top button -->
+		<a href="#" class="top-btn items-align-center text-center" id="topBtn"><i class="fa fa-chevron-up text-dark mt-15"></i></a>
+				
+        <!-- 공통 스크립트-->
+        <th:block th:replace="~{layout/fragments/script :: scriptFragment}"></th:block>
+		<!-- 스크립트 -->
+		<th:block layout:fragment="script"></th:block>
+    </body>
+</html>

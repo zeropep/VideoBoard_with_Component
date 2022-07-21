@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.videoboard.boot.repository.BoardDAO">
+    <insert id="insertBoard" parameterType="BoardVO" useGeneratedKeys="true" keyProperty="bno" keyColumn="bno">
+		insert into board (title, username, mno, content) values (#{title}, #{username}, #{mno}, #{content})
+	</insert>
+	
+	<select id="selectAllBoards" resultType="BoardVO">
+		select * from board order by bno desc
+	</select>
+	
+	<select id="BoardDetail" parameterType="long" resultType="BoardVO">
+		select * from board where bno = #{bno}
+	</select>
+
+	<select id="selectListBoardPaging" parameterType="PagingVO" resultType="BoardVO">
+		select a.bno, mno, title, content, username, cmt_count, created_at, modified_at
+		from (
+			select bno from board
+			where bno > 0 
+			order by bno desc
+			limit #{pageStart}, #{qty}
+		) a left join board b
+		on a.bno = b.bno
+	</select>
+	
+	<select id="selectTotalCount" parameterType="PagingVO" resultType="int">
+		select count(bno) from board where bno > 0
+	</select>
+	
+	<update id="updateBoard" parameterType="BoardVO">
+		update board set title = #{title}, content = #{content}, modified_at = now() where bno = #{bno}
+	</update>
+	
+	<update id="addCmtCount" parameterType="long">
+		update board set cmt_count = cmt_count + 1 where bno = #{bno}
+	</update>
+
+	<update id="downCmtCount" parameterType="long">
+		update board set cmt_count = cmt_count - 1 where bno = #{bno}
+	</update>
+	
+	<delete id="deleteBoard" parameterType="long"> 
+		delete from board where bno = #{bno}
+	</delete>
+</mapper>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/layout}">
+
+<th:block layout:fragment="content">
+    <!-- Begin Page Content -->
+    <div class="wrapper light-wrapper">
+      <div class="container inner pt-20 text-center">
+      	<div class="mb-40 search">
+	      	<input type="text" class="" placeholder="search" id="keyword"><a href="#"><i class="fa fa-search icon text-dark" id="searchBtn"></i></a>
+      	</div>
+        <div class="tiles grid" id="videoGrid" style="min-height: 400px">
+          
+           <!-- <div class="divider-icon text-center w500"><a href="#" class="">더보기</a></div> -->
+          
+        </div>
+        <!--/.tiles -->
+      </div>
+      <!-- /.container -->
+    </div>
+    <!-- /.wrapper -->
+    
+</th:block>
+
+<th:block layout:fragment="script">
+	<script type="text/javascript">
+		let sort = "[[${sort}]]";
+		let msg = "[[${msg}]]";
+		if (sort != "noMsg" && msg != "noMsg") {
+    		sort = `[[#{${sort}}]]`;
+    		msg = `[[#{${msg}}]]`;
+		}
+		let key = "[[${key}]]";
+	</script>
+	<script type="text/javascript" src="/js/video/list/list.js"></script>
+	<script type="text/javascript" src="/js/video/list/search.js"></script>
+</th:block>
+
+</html>

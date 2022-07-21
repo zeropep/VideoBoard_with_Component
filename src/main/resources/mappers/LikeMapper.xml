@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.videoboard.boot.repository.LikeDAO">
+
+	<insert id="insertLike" parameterType="LikeVO">
+		insert into `like` (`from`, `to`) values (#{from}, #{to})
+	</insert>
+	
+	<select id="selectLikeVideo" parameterType="LikeVO" resultType="int">
+		select count(`to`) from `like` where `from` = #{from} and `to` = ${to}
+	</select>
+	
+	<delete id="deleteLike" parameterType="LikeVO">
+		delete from `like` where `from` = #{from} and `to` = #{to}
+	</delete>
+    
+</mapper>

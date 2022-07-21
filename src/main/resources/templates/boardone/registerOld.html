@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{/layout/layout}">
+
+<th:block layout:fragment="content">
+    <!-- Begin Page Content -->
+    <div class="wrapper light-wrapper">
+      <div class="container inner">
+        <h2 class="section-title mb-40 text-center">게시물 등록</h2>
+        <div class="row mb-50">
+          <div class="col-lg-8 offset-lg-2">
+          	<form action="" id="regForm">
+          	  Title : <input type="text" id="title" name="title" class="mb-20" placeholder="title"> <br>
+          	  content : <textarea id="content" class="mb-40"></textarea> <br>
+          	  <button class="btn btn-pastel" type="submit" id="Btn">등록</button>
+          	</form>
+          </div>
+          <!-- /column -->
+        </div>
+        <!-- /.row -->
+      </div>
+      <!-- /.container -->
+    </div>
+    <!-- /.wrapper -->
+    
+</th:block>
+
+<th:block layout:fragment="script">
+	<script type="text/javascript" src="/js/boardone/register.js"></script>
+</th:block>
+
+</html>

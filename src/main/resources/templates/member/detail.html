@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/layout}">
+
+<th:block layout:fragment="content">
+    <!-- Begin Page Content -->
+    <div class="wrapper bg-pastel-default">
+      <div class="container pb-60" style="min-height: 600px;">
+      	<div class="banner text-center">
+      	  <img class="profile-img mt-20" alt="" src="/style/images/default.jpg">
+      	  <h1 class="mt-20" id="username"></h1>
+      	</div>
+      	<div class="row">
+          <div class="col-lg-12">
+            <div class="tabs-wrapper bg-white shadow">
+              <ul class="nav nav-tabs">
+              <!-- th:classappend="${menu.equals('video')} ? active : ''"  -->
+                <li class="nav-item"> <a class="nav-link active" data-toggle="tab" href="#tab1-1">내 소개글</a> </li>
+                <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#tab1-2">내 영상</a> </li>
+              </ul>
+              <!-- /.nav-tabs -->
+              <div class="tab-content">
+                <div class="tab-pane fade show active" id="tab1-1">
+                  <p>Sed posuere consectetur est at lobortis. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Maecenas faucibus mollis interdum. Maecenas faucibus mollis interdum. Sed posuere consectetur est at lobortis.
+                    Vestibulum id ligula porta felis euismod.</p>
+                  <p> Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor vel scelerisque nisl consectetur et.</p>
+                  <p>Maecenas faucibus mollis interdum. Sed posuere consectetur est at lobortis. Maecenas sed diam eget risus varius blandit sit amet non magna. Donec id elit non mi porta gravida at eget metus. Curabitur blandit tempus porttitor.
+                    Nullam id dolor id nibh ultricies vehicula ut id elit. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus.</p>
+                </div>
+                <div class="tab-pane fade" id="tab1-2">
+                  <div class="tiles grid" id="videoGrid" style="min-height: 400px"></div>
+                </div>
+              </div>
+              <!-- /.tab-content -->
+            </div>
+            <!-- /.tabs-wrapper -->
+          </div>
+          <!-- /column -->
+        </div>
+        <!-- /.row -->
+      </div>
+      <!-- /.container -->
+    </div>
+    <!-- /.wrapper -->
+    
+</th:block>
+
+<th:block layout:fragment="script">
+	<script type="text/javascript" src="/js/member/detail.js"></script>
+</th:block>
+
+</html>

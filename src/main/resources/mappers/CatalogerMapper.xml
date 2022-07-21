@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.videoboard.boot.repository.CatalogerDAO">
+
+    <insert id="insertCatalogerResult" parameterType="CatalogResultVO">
+		insert into cataloger (job_seq, vno, fno, image_path, start_time, end_time, play_time, start_frame, end_frame, play_frame) 
+		values (#{jobSeq}, #{vno}, #{fno}, #{imagePath}, #{startTime}, #{endTime}, #{playTime}, #{startFrame}, #{endFrame}, #{playFrame})
+	</insert>
+	
+	<select id="selectResults" parameterType="long" resultType="CatalogResultVO">
+		select * from cataloger where vno = #{vno}
+	</select>
+	
+</mapper>

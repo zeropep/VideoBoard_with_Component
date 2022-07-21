@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.videoboard.boot.repository.VCommentDAO">
+
+	<insert id="insertComment" parameterType="CommentVO">
+		insert into comment (vno, mno, username, content)
+		values (#{vno}, #{mno}, #{username}, #{content})
+	</insert>	
+	
+	<select id="selectListComment" resultType="CommentVO">
+		select a.cno, mno, username, content, created_at, modified_at
+		from (
+			select cno from comment
+			where vno = #{vno}
+			order by cno desc
+			limit #{pgvo.pageStart}, #{pgvo.qty}
+		)a inner join comment b 
+		on a.cno = b.cno
+	</select>
+	<select id="selectCommentTotalCount" resultType="int">
+		select count(cno) from comment where vno = #{vno}
+	</select>
+	
+	<update id="updateComment" parameterType="CommentVO">
+		update comment
+		set content = #{content}, modified_at = now()
+		where cno = #{cno}
+	</update>
+	
+	<delete id="deleteComment" parameterType="long">
+		delete from comment where cno = #{cno}
+	</delete>
+	<delete id="deleteAllComment" parameterType="long">
+		delete from comment where vno = #{vno}
+	</delete>
+	
+</mapper>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/layout}">
+
+<th:block layout:fragment="content">
+    <!-- Begin Page Content -->
+    <div class="wrapper light-wrapper">
+      <div class="container inner text-center pt-50 pb-50">
+        <div class="row " >
+          <div class="col-lg-10 offset-lg-1 pt-30 pb-30 mb-20 text-center shadow br-15 bg-white">
+	        <h2 class="section-title mb-40 text-center">게시물 등록</h2>
+          	<form action="" id="regForm" enctype="multipart/form-data" class="">
+          		<div class="w-90 m-auto justify-content-between">
+	          	  <input type="text" id="title" name="title" class="col-lg-5 mb-30 mr-10" placeholder="제목" >
+	          	  <input type="file" id="file" class="col-lg-5 file-input mb-30 ml-10">
+	          	</div>
+          	  <textarea id="description" class="mb-30 w-80" placeholder="사진에 대한 설명을 써주세요."></textarea> <br>
+   	      	  <div class="ldBar text-center w-90 mb-40 m-auto" data-preset="rainbow" data-value="0" id="upload"></div>
+          	  <button class="btn btn-pastel w-50" type="submit" id="Btn">등록</button>
+          	</form>
+          </div>
+          <!-- /column -->
+        </div>
+        <!-- /.row -->
+      </div>
+      <!-- /.container -->
+    </div>
+    <!-- /.wrapper -->
+    
+</th:block>
+
+<th:block layout:fragment="script">
+	<script type="text/javascript" src="/js/video/register/register.js"></script>
+</th:block>
+
+</html>

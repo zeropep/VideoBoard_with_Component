@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/layout}">
+
+<th:block layout:fragment="content">
+    <!-- Begin Page Content -->
+    <div class="wrapper light-wrapper">
+      <div class="container mt-20 mb-40">
+        <div class="rev_slider_wrapper autowidth-container">
+          <div id="slider5" class="rev_slider" data-version="5.4.8">
+            <ul>
+              <li data-transition="random" data-fstransition="fade" data-thumb="style/images/art/slider-bg34.jpg"><img src="style/images/art/slider-bg34.jpg" alt="" /></li>
+              <li data-transition="random" data-thumb="style/images/art/slider-bg35.jpg"><img src="style/images/art/slider-bg35.jpg" alt="" /></li>
+              <li data-transition="random" data-thumb="style/images/art/slider-bg36.jpg"><img src="style/images/art/slider-bg36.jpg" alt="" /></li>
+              <li data-transition="random" data-thumb="style/images/art/slider-bg37.jpg"><img src="style/images/art/slider-bg37.jpg" alt="" /></li>
+              <li data-transition="random" data-thumb="style/images/art/slider-bg38.jpg"><img src="style/images/art/slider-bg38.jpg" alt="" /></li>
+            </ul>
+            <div class="tp-bannertimer tp-bottom"></div>
+          </div>
+          <!-- /.rev_slider -->
+        </div>
+        <!-- /.rev_slider_wrapper -->
+      </div>
+      <!-- /.container -->
+    </div>
+</th:block>
+
+<th:block layout:fragment="script">
+	<script type="text/javascript">
+		let sort = "[[${sort}]]";
+		let msg = "[[${msg}]]";
+		if (sort != "noMsg" && msg != "noMsg") {
+	   		sort = `[[#{${sort}}]]`;
+	   		msg = `[[#{${msg}}]]`;
+		}
+	</script>
+	<script type="text/javascript" src="/js/index.js"></script>
+</th:block>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{/layout/layout}">
+
+<th:block layout:fragment="content">
+    <!-- Begin Page Content -->
+    <div class="wrapper light-wrapper">
+      <div class="container pt-50 pb-50 text-center">
+        <div class="row text">
+          <div class="col-lg-6 offset-lg-3 pt-30 pb-30 mb-20 text-center shadow br-15 bg-white">
+	        <h2 class="section-title mb-40 text-center">게시물 수정</h2>
+          	<form action="" id="modForm">
+          	  <input type="text" id="title" name="title" class="mb-30 w-80" placeholder="제목"> <br>
+          	  <textarea id="description" class="mb-20 w-80" placeholder="영상에 대한 설명을 써주세요."></textarea> <br>
+          	  <input type="file" id="file" class="file-input w-80 mb-30"> <br>
+	          	  <ul class="list-group shadow mb-40 w-80 ml-60">
+		            <li class="list-group-item d-flex justify-content-between align-items-center uploaded-file" id="uploaded"></li>
+		          </ul>
+          	  <button class="btn btn-pastel w-80" type="submit" id="Btn">수정</button>
+          	</form>
+          </div>
+          <!-- /column -->
+          
+        </div>
+        <!-- /.row -->
+      </div>
+      <!-- /.container -->
+    </div>
+    <!-- /.wrapper -->
+    
+</th:block>
+
+<th:block layout:fragment="script">
+	<script type="text/javascript">
+		let vno = [[${vno}]];
+	</script>
+	<script type="text/javascript" src="/js/video/modify/modify.js"></script>
+</th:block>
+
+</html>

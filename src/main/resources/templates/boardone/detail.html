@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/layout}">
+
+<th:block layout:fragment="content">
+    <!-- Begin Page Content -->
+    <div class="wrapper light-wrapper">
+      <div class="container inner pt-60">
+        <div class="blog classic-view">
+          <div class="post text-center">
+            <div class="row post-content text-left bg-white pt-50" style="border-radius: 20px;">
+              <input type="hidden" th:value="${bno}" id="bno">
+              <!-- title -->
+              <div class="col-md-10 offset-md-1 d-flex justify-content-between" id="title">
+                <h1 class="post-title"></h1>
+                <div>
+              	  <a class="btn btn-s btn-pastel-yellow" id="mod" hidden="true">수정</a>
+              	  <button type="button" class="btn btn-s btn-pastel-red" id="del" hidden="true">삭제</button>
+                </div>
+              </div>
+              <!-- content -->
+              <div class="col-md-10 offset-md-1" id="postContainer">
+                <div class="meta"></div>
+                <img class="mb-40" alt="" src="">
+                <p></p>
+              </div>
+              
+              <div class="space70"></div>
+              
+              <div class="col-md-12 text-center">
+                <a class="btn btn-pastel-lavender" id="back">뒤로가기</a>
+              </div>
+              
+              <div class="space70"></div>
+              
+              <!-- comment -->
+              <div class="col-md-10 offset-md-1 text-center" id="cmtContainer">
+              	<form class="form-inline">
+	              <label class="sr-only" for="content">댓글을 작성해주세요.</label>
+	              <div class="input-group mb-20 mr-sm-2" style="width: 83%">
+	                <input type="text" class="form-control" id="cmtText" placeholder="댓글을 입력해 주세요." required="required">
+	              </div>
+	              <br />
+	              <button class="btn btn-pastel-success position-relative mb-20 ml-10 ml-md-0" type="button" id="cmtPostBtn">Post</button>
+                  <button class="btn btn-pastel-yellow position-relative mb-20 ml-10 ml-md-0 hidden"
+                		  type="button" id="cmtModBtn">Modify</button>
+	            </form>
+				<ul class="list-group list-group-flush" id="cmtListArea">
+				</ul>
+				
+              	<div class="space30"></div>
+              	<!-- comment page -->
+              	<div class="col-md-10 offset-md-1 text-center">
+					<div class="pagination" id="cmtPaging">
+	            	</div>
+              	</div>
+           	  </div>
+           	  
+            </div>
+	        <!-- /.row -->
+          </div>
+          <!-- /.post -->
+        </div>
+        <!-- /.blog -->
+      </div>
+      <!-- /.container -->
+    </div>
+    <!-- /.wrapper -->
+    
+</th:block>
+
+<th:block layout:fragment="script">
+	<script type="text/javascript">
+		let curPage = [[${curPage}]];
+	</script>
+	<script type="text/javascript" src="/js/boardone/detail.js"></script>
+	<script type="text/javascript" src="/js/boardone/comment.js"></script>
+	<script type="text/javascript" src="/js/boardone/remove.js"></script>
+</th:block>
+
+</html>

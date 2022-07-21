@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/layout}">
+
+<th:block layout:fragment="content">
+    <!-- Begin Page Content -->
+    <div class="wrapper light-wrapper">
+      <div class="container inner pt-60">
+        <div class="blog classic-view">
+          <div class="post text-center">
+            <div class="row post-content text-left bg-white pt-50" style="border-radius: 20px;">
+              <input type="hidden" th:value="${vno}" id="vno">
+              
+              <div class="col-md-10 offset-md-1 mb-20">
+                <video id="myVideo" class="video-js vjs-skin-default vjs-fluid vjs-big-play-centered vjs-time-control mb-20"></video>
+              </div>
+              <!-- title -->
+              <div class="col-md-10 offset-md-1 d-flex justify-content-between" id="title">
+                <h1 class="post-title"></h1>
+                <div class="dropdown" hidden="true">
+                	<a class="nav-link dropdown-toggle color-dark" id="extra" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#">&#8942;</a>
+                	  <ul class="dropdown-menu toleft shadow" aria-labelledby="extra">
+		                <li class="nav-item" ><a class="dropdown-item" href="" id="mod">수정</a></li>
+		                <li class="nav-item" ><a class="dropdown-item" href="" id="del">삭제</a></li>
+		              </ul>
+                </div>
+              </div>
+              
+              <!-- content -->
+              <div class="col-md-10 offset-md-1" id="postContainer">
+                <div class="meta"></div>
+                <p></p>
+              </div>
+              
+              <div class="space30"></div>
+              
+              <div class="col-md-10 offset-md-1 text-right d-inline underline">
+              	<a href="/video/list?key=0"><i class="fa fa-arrow-circle-left color-dark menu-tray" id="back">  List</i></a> &nbsp;&nbsp;
+              	<a href="#" class="has-popover" tabindex="0" role="button" 
+              				data-content="좋아요 취소" data-placement="top">
+              	  <i class="fa fa-thumbs-o-up color-dark menu-tray" id="like">  0</i>
+              	  <i class="fa fa-flag color-dark menu-tray ml-10">  0</i>
+              	</a>&nbsp;&nbsp;
+              </div>
+              
+              <div class="space70"></div>
+              
+              <!-- comment -->
+              <div class="col-md-10 offset-md-1 text-center" id="cmtContainer">
+              	<form class="form-inline">
+	              <label class="sr-only" for="content">댓글을 작성해주세요.</label>
+	              <div class="input-group mb-20 mr-sm-2" style="width: 83%">
+	                <input type="text" class="form-control" id="cmtText" placeholder="댓글을 입력해 주세요." required="required">
+	              </div>
+	              <br />
+	              <button class="btn btn-pastel-success position-relative mb-20 ml-10 ml-md-0" type="button" id="cmtPostBtn">Post</button>
+	            </form>
+	            
+				<ul class="list-group list-group-flush" id="cmtListArea">
+				</ul>
+				
+				<div class="mt-10 mb-40">
+				  <h2 ><a href="#"  class="invisible"><i id="more"class="si-arrows_double-arrow-down"></i></a></h2>
+				</div>
+				
+           	  </div>
+           	  
+            </div>
+	        <!-- /.row -->
+          </div>
+          <!-- /.post -->
+        </div>
+        <!-- /.blog -->
+      </div>
+      <!-- /.container -->
+    </div>
+    <!-- /.wrapper -->
+    
+</th:block>
+
+<th:block layout:fragment="script">
+	<script type="text/javascript">
+		let sort = "[[${sort}]]";
+		let msg = "[[${msg}]]";
+		if (sort != "noMsg" && msg != "noMsg") {
+    		sort = `[[#{${sort}}]]`;
+    		msg = `[[#{${msg}}]]`;
+		}
+	</script>
+	<script type="text/javascript" src="/js/video/detail/video.js"></script>
+	<script type="text/javascript" src="/js/video/detail/detail.js"></script>
+	<script type="text/javascript" src="/js/video/detail/comment.js"></script>
+	<script type="text/javascript" src="/js/video/detail/remove.js"></script>
+	<script type="text/javascript" src="/js/video/detail/likeAndDislike.js"></script>
+</th:block>
+
+</html>

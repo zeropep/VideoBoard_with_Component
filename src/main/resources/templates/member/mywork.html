@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/layout}">
+
+<th:block layout:fragment="content">
+    <!-- Begin Page Content -->
+    <div class="wrapper light-wrapper">
+      <div class="container inner">
+        <div class="row">
+          	<button class="btn btn-s btn-pastel-blue text-right" id="refresh">Refresh</button>
+          <div class="col-md-12">
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Component</th>
+                  <th scope="col">File name</th>
+                  <th scope="col">File type</th>
+                  <th scope="col">Result</th>
+                  <th scope="col">Prog.</th>
+                  <th scope="col">Start time</th>
+                  <th scope="col">Finish time</th>
+                </tr>
+              </thead>
+              <tbody id="tbody">
+              </tbody>
+            </table>
+          </div>
+          <!-- /column -->
+        </div>
+        <!-- /.row -->
+        <div class="space70"></div>
+      </div>
+      <!-- /.container -->
+    </div>
+    <!-- /.wrapper -->
+    
+</th:block>
+
+<th:block layout:fragment="script">
+	<script type="text/javascript" src="/js/member/jobs.js"></script>
+</th:block>
+
+</html>

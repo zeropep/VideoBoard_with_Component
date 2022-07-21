@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/layout}">
+
+<th:block layout:fragment="content">
+    <!-- Begin Page Content -->
+    <div class="wrapper light-wrapper">
+      <div class="container pt-75 pb-75">
+        <div class="row">
+          <div class="col-lg-4 offset-lg-4 pt-20 pb-20 text-center shadow br-15 bg-white">
+        	<h2 class="section-title mb-40 text-center">Login</h2>
+			<form action="/member/login" method="POST" id="login">
+				<input type="email" class="mb-30 w-80" id="email" name="email" placeholder="email" value="asd@asd.com" required> <br>
+				<input type="password" class="mb-30 w-80" id="pwd" name="pwd" placeholder="password" value="asd" required> <br>
+				<button class="btn btn-pastel-aqua mb-40 w-80" type="submit">Login</button> <br>
+			</form>
+			<div class="w-80 m-auto mb-30">
+			  <hr class=" p-0 m-0" />
+			</div>
+			Don't have an Account? <a class="mb-40" href="/member/register">Register &rarr;</a>
+          </div>
+          <!-- /column -->
+        </div>
+        <!-- /.row -->
+      </div>
+      <!-- /.container -->
+    </div>
+</th:block>
+<th:block layout:fragment="script">
+	<script type="text/javascript">
+		let sort = "[[${sort}]]";
+		let msg = "[[${msg}]]";
+		if (sort != "noMsg" && msg != "noMsg") {
+    		sort = `[[#{${sort}}]]`;
+    		msg = `[[#{${msg}}]]`;
+		}
+	</script>
+	<script type="text/javascript" src="/js/member/login.js"></script>
+</th:block>
+</html>

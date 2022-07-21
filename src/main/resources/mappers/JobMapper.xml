@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.videoboard.boot.repository.JobDAO">
+
+    <insert id="insertJob" parameterType="JobVO" useGeneratedKeys="true" keyProperty="jobSeq" keyColumn="job_seq">
+		insert into job (mno, vno, fno, file_type, file_name, component, status) 
+		values (#{mno}, #{vno}, #{fno}, #{fileType}, #{fileName}, #{component}, ${status})
+	</insert>
+	
+	<select id="selectJobs" resultType="JobVO">
+		select * from job where mno = ${mno} 
+		order by job_seq desc 
+		limit #{pgvo.pageStart}, #{pgvo.qty}
+	</select>
+	
+	<select id="selectJobsByVno" parameterType="long" resultType="JobVO">
+		select * from job where vno = #{vno}
+	</select>
+	
+	<select id="selectTotalCount" parameterType="long" resultType="int">
+		select count(job_seq) from job 
+		where mno = ${mno}
+	</select>
+	
+	<update id="updateJob" parameterType="JobVO">
+		update job set 
+		status = #{status}
+		where job_seq = #{jobSeq}
+	</update>
+	
+	<update id="updateProgress">
+		update job set 
+		progress = #{progress}
+		where vno = #{vno} and component = "1001"
+	</update>
+	
+	<update id="finishJob" parameterType="long">
+		update job set 
+		status = "03",
+		finish_time = now()
+		where job_seq = #{jobSeq}
+	</update>
+	
+	<select id="selectJob" resultType="JobVO">
+		select * from job where job_seq = #{jobSeq}
+	</select>
+	
+</mapper>

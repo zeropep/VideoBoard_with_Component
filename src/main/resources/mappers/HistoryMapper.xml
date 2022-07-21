@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.videoboard.boot.repository.HistoryDAO">
+
+    <insert id="insertHistory" parameterType="HistoryVO">
+		insert into history (mno, vno, uuid, save_dir, file_name, request_time) 
+		values (#{mno}, #{vno}, #{uuid}, #{saveDir}, #{fileName}, #{requestTime})
+	</insert>
+	
+	<update id="updateRemoved" parameterType="long">
+		update history set removed_time = now()
+		where fno = #{fno}
+	</update>
+	
+</mapper>
